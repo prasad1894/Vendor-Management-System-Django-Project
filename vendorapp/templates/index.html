@@ -1,0 +1,58 @@
+{% extends "theme.html" %}
+
+{% block main%}
+    <div class="container">
+        <div class="row m-1">
+            <!-- categories list columns -->
+            <div class="col-lg-3">
+                <div class="list-group border shadow">
+                    <a href="/" class="m-1">
+                        <button class="btn btn-light" style="width: 15.2rem;">
+                        All products
+                        </button>
+                    </a>
+
+                    {% for j in categories %}
+                    <a href="/?category={{j.id}}" class="m-1">
+                        <button class="btn btn-light" style="width:15.2rem;">
+                        {{j.name}}
+                        </button>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- products columns -->
+            <div class="col-lg-9">
+                <div class="row">
+                    {% for i in products %}
+                    <div class="col-lg-4">
+                        
+                        <div class="card mb-5 shadow" style="width: 15rem;height: 23rem">
+                            <div class="card-header">
+                                <img src="{{i.image.url}}" class="img-fluid">
+                            </div>
+        
+                            <div class="card-body">
+                                <h5 align="center"> {{i.name}} </h5>
+                                <h5 align="center"> price: {{i.price}} </h5>
+        
+                            </div>
+        
+                            <div class="card-footer">
+                                <button class="btn btn-outline-dark">
+                                    Book Now
+                                </button>
+        
+                            </div>
+                        
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock%}
